@@ -36,14 +36,19 @@ UI.formCotizar.addEventListener('submit', (e) => {
 
         let html = "";
 
-        const precio = api.data.quotes;
-        console.log(precio);
+        const info = api.data;
+        console.log(info);
         
-        if (precio.hasOwnProperty(pais)) {
-            const element = precio[pais];
+        if (info.quotes.hasOwnProperty(pais)) {
+            const element = info.quotes[pais];
             console.log(element);
+            console.log(info.last_updated);
             
-            if(precio)
+            let d = new Date(info.last_updated * 1000);
+            const hora = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()} - ${d.getHours()}:${d.getMinutes()}`;
+            console.log(hora);
+            
+
             html += `<div class="card blue darken-3">
                         <div class="card-content white-text">
                             <span class="card-title">Information</span>
@@ -52,7 +57,7 @@ UI.formCotizar.addEventListener('submit', (e) => {
                             <p>Percent Last Hour: ${element.percent_change_1h} %</p>
                             <p>Percent Last 24 Hours: ${element.percent_change_24h} %</p>
                             <p>Percent Last 7 Days: ${element.percent_change_7d} %</p>
-                            <span> Last Update: ${precio.last_updated}</span>
+                            <span class="date"> Last Update: ${hora}</span>
                         </div>
                     </div>`
         }
