@@ -29,27 +29,40 @@ api.obtenerCriptomonedas().then(api => {
 UI.formCotizar.addEventListener('submit', (e) => {
     e.preventDefault();
 
+
     const pais = UI.selectTipoMoneda.value;
     const criptoMoneda = UI.selectCriptoMoneda.value;
 
-    api.obtenerInfoCriptomoneda(criptoMoneda, pais).then(api => {
+    UI.resultado.innerHTML = '';
 
-        let html = "";
+    mostrarSpinner();
 
-        const info = api.data;
-        console.log(info);
-        
-        if (info.quotes.hasOwnProperty(pais)) {
-            const element = info.quotes[pais];
-            console.log(element);
-            console.log(info.last_updated);
-            
-            let d = new Date(info.last_updated * 1000);
-            const hora = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()} - ${d.getHours()}:${d.getMinutes()}`;
-            console.log(hora);
-            
+    setTimeout(() => {
+        mostrarResultado();
+        document.querySelector('.spinner img').remove();
+    }, 2000);
 
-            html += `<div class="card blue darken-3">
+
+    function mostrarResultado(){
+        api.obtenerInfoCriptomoneda(criptoMoneda, pais).then(api => {
+
+
+            let html = "";
+
+            const info = api.data;
+            console.log(info);
+
+            if (info.quotes.hasOwnProperty(pais)) {
+                const element = info.quotes[pais];
+                console.log(element);
+                console.log(info.last_updated);
+
+                let d = new Date(info.last_updated * 1000);
+                const hora = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()} - ${d.getHours()}:${d.getMinutes()}`;
+                console.log(hora);
+
+
+                html += `<div class="card blue darken-3">
                         <div class="card-content white-text">
                             <span class="card-title">Information</span>
                             <p>Coin: ${api.data.symbol} (${api.data.name}) </p>
@@ -60,10 +73,19 @@ UI.formCotizar.addEventListener('submit', (e) => {
                             <span class="date"> Last Update: ${hora}</span>
                         </div>
                     </div>`
-        }
-        
-        UI.resultado.innerHTML = html;
-    })
+            }
+            UI.resultado.innerHTML = html;
+
+        });
+    }
+
+    
+
+    function mostrarSpinner() {
+        const spinner = document.createElement('img');
+        spinner.src = '../img/spinner.gif';
+        document.querySelector('.spinner').appendChild(spinner);
+    }
 
 })
 
