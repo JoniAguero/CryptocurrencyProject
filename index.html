@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cotizador Criptomonedas</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="center">
+        <h1>COTIZADOR CRIPTOMONEDAS</h1>
+        <blockquote>
+            This is an example Native Javascript Application connected to <a href="https://coinmarketcap.com/"><b>API coinmarketcap</b></a> using <b>Materialize</b>.
+        </blockquote>
+    </div>
+    <div class="container contenido-principal">
+        <div class="row">
+            <form class="col s8 offset-s2" id="formulario">
+                <div class="row">
+                    <div class="formulario-cotizar">
+                        <div class="input-field col s12">
+                                <select id="moneda">
+                                    <option value="" disabled>Choose Currency</option>
+                                    <option value="USD">Dolar Estadounidense</option>
+                                    <option value="GBP">Libras</option>
+                                    <option value="EUR">Euros</option>
+                                </select>
+                                <label>Currency</label>
+                        </div>    
+                        <div class="input-field col s12">
+                            <select id="criptomoneda">
+                                <option value="" disabled>Choose Cryptocurrency</option>
+                            </select>
+                            <label>Cryptocurrency</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light blue darken-3" type="submit" name="action">Cotizar
+                                <i class="material-icons right">attach_money</i>
+                            </button>
+                        </div>
+                        <div class="mensajes col s12"></div>
+                        <div class="spinner"></div>
+                        <div id="resultado" class="col s12"></div>
+                    </div>
+                  
+                </div>
+            </form>
+        </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/app.js" type="module"></script>
+
+    <script>
+        (function() {
+            $(document).ready(function(){
+                setTimeout(() => {
+                    $('select').select();
+                }, 2000);
+                
+            });
+        })(jQuery);
+    </script>
+
+</body>
+</html>

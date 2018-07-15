@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+    background: rgba(255,175,75,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
+
+}
+.title{
+    text-align: center;
+}
+
+.card-container{
+    margin-top: 100px;
+}
+form {
+    margin: 50px auto;
+}
+.contenido-principal {
+    margin: 50px auto;
+    background-color: white;
+    -webkit-box-shadow: -1px 20px 52px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 20px 52px -13px rgba(0,0,0,0.75);
+    box-shadow: -1px 20px 52px -13px rgba(0,0,0,0.75);
+}
+
+#resultado {
+    text-align: center;
+}
+.btn {
+    width: 100%;
+}
+.spinner  {
+    text-align: center;
+}
