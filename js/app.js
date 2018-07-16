@@ -33,8 +33,6 @@ UI.formCotizar.addEventListener('submit', (e) => {
     const pais = UI.selectTipoMoneda.value;
     const criptoMoneda = UI.selectCriptoMoneda.value;
 
-    UI.resultado.innerHTML = '';
-
     mostrarSpinner();
 
     setTimeout(() => {
@@ -79,9 +77,8 @@ UI.formCotizar.addEventListener('submit', (e) => {
         });
     }
 
-    
-
     function mostrarSpinner() {
+        UI.resultado.innerHTML = '';
         const spinner = document.createElement('img');
         spinner.src = '../img/spinner.gif';
         document.querySelector('.spinner').appendChild(spinner);
